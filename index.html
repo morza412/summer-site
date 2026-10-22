@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#cebe80">
+  <title>Моё лето</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    /* Применяем тему до отрисовки, чтобы не было мигания */
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+<!-- SVG-иконки -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-anchor" viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><path d="M12 22V8M5 12H2a10 10 0 0 0 20 0h-3"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M12 20V10M18 20V4M6 20v-4"/></symbol>
+  </defs>
+</svg>
+
+<div class="page">
+
+  <header class="header">
+    <div class="brand">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Переключить тему" title="Сменить тему">
+        <svg class="icon-sun-logo" viewBox="0 0 24 24"><circle cx="9" cy="14" r="5" fill="currentColor" stroke="none"/><path d="M9 4v2M2 14H0M3.5 8.5 2 7M15 8.5 16.5 7M18 14h2"/></svg>
+        <svg class="icon-moon-logo icon"><use href="#i-moon"/></svg>
+      </button>
+      <h1 class="title">Моё лето</h1>
+    </div>
+    <nav class="nav" aria-label="Навигация">
+      <a href="#home" class="active">Главная</a>
+      <a href="#rest">Отдых</a>
+      <a href="#summary">Итоги</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home">
+      <!-- Карточка 1 -->
+      <article class="card hero">
+        <div class="hero-text">
+          <h2 class="h-xl">Как я провел своё лето</h2>
+          <p class="text">Яркое, солнечное, веселое и незабываемое</p>
+          <p class="text">Полное работы, отдыха, и незабываемых воспоминаний</p>
+        </div>
+        <div class="hero-icon" aria-hidden="true">
+          <svg class="icon icon-sun"><use href="#i-sun"/></svg>
+          <svg class="icon icon-moon"><use href="#i-moon"/></svg>
+        </div>
+        <div class="photo hero-photo"><img src="images/hero.jpg" alt="Я и мой брат" onerror="this.remove()"></div>
+      </article>
+
+      <!-- Карточка 2 -->
+      <article class="card work">
+        <div class="work-body">
+          <h2 class="h-lg with-icon"><svg class="icon"><use href="#i-bag"/></svg>Лето в работе</h2>
+          <p class="text work-text">Этим летом я работал в магазине Лемана Про, собирал заказы для клиентов, работа была интересной и моментами веселой</p>
+          <div class="stats">
+            <div class="stat"><svg class="icon"><use href="#i-box"/></svg><span>Собирал заказы</span></div>
+            <div class="divider"></div>
+            <div class="stat"><svg class="icon"><use href="#i-users"/></svg><span>Работал в команде</span></div>
+          </div>
+        </div>
+        <div class="photo work-photo"><img src="images/work.jpg" alt="Я на работе" onerror="this.remove()"></div>
+      </article>
+    </section>
+
+    <section id="rest">
+      <!-- Озеро -->
+      <article class="card lake">
+        <div class="lake-head">
+          <svg class="icon big"><use href="#i-anchor"/></svg>
+          <div>
+            <h2 class="h-lg">Отдых на озере</h2>
+            <p class="text">Два раза ездил на озеро с семьёй</p>
+          </div>
+        </div>
+        <div class="trips">
+          <div class="trip">
+            <div class="photo trip-photo"><img src="images/lake-1.jpg" alt="Первая поездка" onerror="this.remove()"></div>
+            <div class="trip-text">
+              <h3 class="h-md">Первая поездка</h3>
+              <p class="small">Во время первой поездки удалось отдохнуть от городской суеты и работы на бердском заливе</p>
+              <p class="small">Я катался на лодке, жарил шашлыки и весело проводил время</p>
+            </div>
+          </div>
+          <div class="trip trip-reverse">
+            <div class="photo trip-photo"><img src="images/lake-2.jpg" alt="Вторая поездка" onerror="this.remove()"></div>
+            <div class="trip-text">
+              <h3 class="h-md">Вторая поездка</h3>
+              <p class="small">Во второй раз мы поехали на озеро Старица, мы много купались, попали под ливень и у меня промокла палатка</p>
+              <p class="small">Палатка не высохла и мне пришлось спать на всем мокром</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Время с девушкой -->
+      <article class="card together">
+        <h2 class="h-lg with-icon center"><svg class="icon"><use href="#i-heart"/></svg>Время с девушкой<svg class="icon"><use href="#i-heart"/></svg></h2>
+        <p class="text center">Мы проводили время вместе, много гуляли, ходили в новые места</p>
+        <div class="gallery">
+          <div class="photo shot"><img src="images/together-1.jpg" alt="Прогулка у пруда" onerror="this.remove()"></div>
+          <div class="photo shot"><img src="images/together-2.jpg" alt="Утка на воде" onerror="this.remove()"></div>
+          <div class="photo shot"><img src="images/together-3.jpg" alt="Мы вместе" onerror="this.remove()"></div>
+        </div>
+      </article>
+    </section>
+
+    <section id="summary">
+      <!-- Итоги -->
+      <article class="card results">
+        <h2 class="h-lg with-icon"><svg class="icon"><use href="#i-chart"/></svg>Итоги моего лета</h2>
+        <ul class="results-grid">
+          <li><svg class="icon"><use href="#i-bag"/></svg>Работа 2 месяца</li>
+          <li><svg class="icon"><use href="#i-anchor"/></svg>2 поездки на озеро</li>
+          <li><svg class="icon"><use href="#i-users"/></svg>Отдых с семьёй</li>
+          <li><svg class="icon"><use href="#i-heart"/></svg>Время с девушкой</li>
+        </ul>
+      </article>
+
+      <!-- Спасибо -->
+      <article class="card thanks">
+        <div class="thanks-logo" aria-hidden="true">
+          <svg class="icon-sun-logo" viewBox="0 0 24 24"><circle cx="9" cy="14" r="5" fill="currentColor" stroke="none"/><path d="M9 4v2M2 14H0M3.5 8.5 2 7M15 8.5 16.5 7M18 14h2"/></svg>
+          <svg class="icon-moon-logo icon"><use href="#i-moon"/></svg>
+        </div>
+        <div class="thanks-body">
+          <h2 class="h-lg center">Спасибо лето</h2>
+          <p class="text center">Это лето подарило мне много опыта, отдыха, приятных воспоминаний и проведенного времени с близкими</p>
+        </div>
+      </article>
+    </section>
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
